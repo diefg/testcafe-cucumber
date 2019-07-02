@@ -1,13 +1,10 @@
-Feature: Searching for TestCafe on GitHub
+Feature: Searching for Tottus sucursales by Google
 
-  I want to find TestCafe repository on GitHub
+  I want to find Tottus sucursales by Google search
 
-  Scenario: Searching for TestCafe on GitHub
-    Given I open the GitHub page
-    When I am typing my search request "TestCafe" on GitHub
-    Then I am pressing enter key on GitHub
-    Then I should see that the first GitHub's result is DevExpress/testcafe
+  Scenario: Searching for Tottus Sucursales by Google
+    Given I am open Google's search page
+    When I am typing my search request "tottus sucursales" on Google
+    Then I press the "enter" key on Google
+    Then I should see that a Google's result is "Tottus Nataniel"
 
-  Scenario: Try to use TestCafe Role
-    Given I open the GitHub page
-    Then I am trying to use Role
