@@ -1,7 +1,5 @@
 const {Given, When, Then} = require('cucumber');
 const Selector = require('testcafe').Selector;
-import t  from 'testcafe';
-const googlePage = require('../support/pages/google-page');
 
 Given('I am open Google\'s search page', async function() {
     await testController.navigateTo('https://google.com');
@@ -22,7 +20,7 @@ Then('I should see that a Google\'s result is {string}', async function (text) {
     var firstLink = Selector('span').withText(text).with({boundTestRun: testController});
     await testController.expect(firstLink.innerText).contains(text);
   });
-  
+
 
 
 
