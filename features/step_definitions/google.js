@@ -27,12 +27,7 @@ Given('I type my search request {string} on Google', async function (text) {
 When('I see the result the {string} on Google i click it', async function (text) {
     var elemento=await Selector('span').withText('Tottus Nataniel')
     clickSucursalIfExists(elemento) 
-   await testController.wait(3000)
-   await testController.click(Selector('#new_tottus_nav_cliente_recetas').find('a').with({timeout: 40000}))
-   await testController.click(Selector('button').withText('ALTA').find('img'))
-   var input = Selector('#search').with({boundTestRun: testController})
-   await testController.typeText(input, 'corona')
-   await testController.click(Selector('h3').withText('CORONA DE ROLLITOS DE CANELA'))
+   await testController.wait(5000)
 });  
 
 async function clickSucursalIfExists(element){
