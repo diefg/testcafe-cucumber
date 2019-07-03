@@ -5,7 +5,6 @@ Feature: Searching for Tottus sucursales by Google
   Scenario: Checking the recipe has canela and azucar morena
     And I type my search request "tottus sucursales" on Google
     When I see the result the "Tottus Nataniel" on Google i click it
-    And i click the link to the website
     Then I click on Recetas y más and search for "corona"
     Then I click the recipe "Corona de rollitos de canela"
     And I check if the recipe has "ázucar morena" and "canela"
