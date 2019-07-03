@@ -1,29 +1,38 @@
 const {Given, When, Then} = require('cucumber')
 //const Selector = require('testcafe').Selector;
 const {Selector, t} = require('testcafe')
+var {setDefaultTimeout} = require('cucumber');
 var googlePage = require('../support/pages/google-page.js')
 
-Given('I am open Google\'s search page', async function() {
+Given('I open Google\'s search page', async function() {
     await testController.navigateTo('https://google.com')
 });
 
+/*
 When('I am typing my search request {string} on Google',  async function(text)  {
     var input = Selector('.gLFyf').with({boundTestRun: testController})
     await this.addScreenshotToReport()
     await testController.typeText(input, text)
     await testController.pressKey("enter")
 });
+*/
+
+Given('I type my search request {string} on Google and press enter', async function (text) {
+    var input = Selector('.gLFyf').with({boundTestRun: testController})
+    await this.addScreenshotToReport()
+    await testController.typeText(input, text)
+    await testController.pressKey("enter")
+  });
 
 Then('I press the {string} key on Google',  async function(text)  {
+    var elemento=await Selector('span').withText('Tottus Nataniel')
+    clickSucursalIfExists(elemento)
    //implementar
 });
 
-Then('I click the Google\'s result {string}', async function (text) {
-   //await googlePage.GooglePage(text,t)
-   var elemento=await Selector('span').withText(text)
-   clickSucursalIfExists(elemento)
-   await testController.wait(10000)
-   await testController.click(Selector('#new_tottus_nav_cliente_recetas').find('a'))
+Then('I click the Google\'s result {string}',{timeout: 60 * 1000}, async function (text) {
+   await testController.wait(3000)
+   await testController.click(Selector('#new_tottus_nav_cliente_recetas').find('a').with({timeout: 40000}))
    await testController.click(Selector('button').withText('ALTA').find('img'))
    var input = Selector('#search').with({boundTestRun: testController})
    await testController.typeText(input, 'corona')
@@ -39,5 +48,4 @@ async function clickSucursalIfExists(element){
     }
 
 }
-
 

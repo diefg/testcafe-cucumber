@@ -2,8 +2,10 @@ Feature: Searching for Tottus sucursales by Google
 
   I want to find Tottus sucursales by Google search
 
-  Scenario: Searching for Tottus Sucursales by Google
-    Given I am open Google's search page
-    When I am typing my search request "tottus sucursales" on Google
-    Then I press the "enter" key on Google
-    Then I click the Google's result "Tottus Nataniel"
+  Scenario: Checking the recipe has canela and azucar morena
+    And I type my search request "tottus sucursales" on Google
+    When I see the result the "Tottus Nataniel" on Google i click it
+    And i click the link to the website
+    Then I click on Recetas y más and search for "corona"
+    Then I click the recipe "Corona de rollitos de canela"
+    And I check if the recipe has "ázucar morena" and "canela"
