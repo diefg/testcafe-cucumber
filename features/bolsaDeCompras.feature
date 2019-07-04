@@ -78,6 +78,7 @@ Feature: Shopping bag
   Scenario: I click the Shopping bag icon without items in it
     Given I am on "www.myStore.com" with my bag empty
     When I click the "Bolsa de compras" icon
+    And the ammount of items icon displays 0
     Then I see the message "No tienes nada en tu bolsa, click aquí para ver nuestro catalogo"
     And I click the link to the products catalogue
     Then I see the products catalogue

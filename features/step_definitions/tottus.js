@@ -14,8 +14,9 @@ Then('I click on Recetas y más and search for {string}',async function (text) {
 Then('I click the recipe {string}',async function (string) {
     await testController.click(Selector('h3').withText('CORONA DE ROLLITOS DE CANELA'))
   });
-
-  Then('I check if the recipe has {string} and {string}', function (string, string2) {
-    // Write code here that turns the phrase above into concrete actions
-    return 'pending';
+  Then('I check if the recipe has {string} and {string}',async function (string, string2) {
+    var ingredienteAzucar = Selector('#hero').with.with("p").nth(4)
+    var ingredienteCanela = Selector('#hero').with.with("p").nth(5)
+    await testController.expect(ingredienteAzucar.textContent).contains(text);
+    await testController.expect(ingredienteCanela.textContent).contains(text2);
   });  
