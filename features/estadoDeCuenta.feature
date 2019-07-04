@@ -1,4 +1,4 @@
-Feature: Checking my Creddit card account statement
+Feature: Checking my Credit card account statement
 
   I want to see my account statement in the bank web page
 
@@ -17,13 +17,13 @@ Scenario: I want to see the card last 4 digits
 Scenario: I want to see the amount to pay
     Given I log in with user "x" and password "x" into the bank portal
     When I navigate to my credit cards and click "ver estado de cuenta"
-    Then I see the field "monto a pagar"
+    Then I see the field "monto a pagar:" with the format "999.999.999"
     And the amount its equal to whats displayed on the table "x"
 
 Scenario: I want to see the interest
     Given I log in with user "x" and password "x" into the bank portal
     When I navigate to my credit cards and click "ver estado de cuenta"
-    Then I see the field "Intereses" 
+    Then I see the field "Intereses" with the format "999.999.999"
     And it should match whats displayed on the table "x"    
 
 Scenario: I want to see the cash advances amount
@@ -44,12 +44,3 @@ Scenario: I want to see the statement date range
     Then I see the label "Fecha de inicio de facturacion" and "Fecha fin de facturacion"
     And the dates are equal to whats displayed on the table "x"    
 
-Scenario: I want to pay the minimun
-    Given I log in with user "x" and password "x" into the bank portal
-    When I navigate to my credit cards and click "ver estado de cuenta"
-    Then I check the field "Monto Facturado" and copy the minium amount
-    Then I click the pagar button
-    And I type the minium pay in the textbox
-    Then I fill the textbox with my "x""x""x" card coordinates
-    And I click the Pagar tarjeta button
-    Then I see the "Monto pagado exitosamente" message on screen
